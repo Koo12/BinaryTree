@@ -11,7 +11,36 @@ public class TestBinaryTree {
     }
 
     /**
-     * 展示树中的内容
+     * 找到二叉树中某一data的结点
+     * @param data
+     * @return
+     */
+    public Node find(int data){
+        // 设置遍历的结点
+        Node current = binaryTree.root;
+
+        while(true) {
+            if (current != null) {
+                if (current.data == data) {
+                    return current;
+                }
+                if(current.data>=data)
+                {
+                    current=current.leftChild;
+                }
+                if(current.data<=data){
+                    current=current.rightNode;
+                }
+            }
+            else{
+                System.out.println("找不到该值");
+                return null;
+            }
+        }
+    }
+
+    /**
+     * 展示树中的内容，由中序遍历展示，所以对于二叉树来说是有小到大展示出来
      * @param node
      */
     public void show(Node node){
